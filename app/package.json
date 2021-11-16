@@ -17,7 +17,4 @@
   "devDependencies": {
     "electron": "^15.3.1"
   },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4"
-  }
 }
