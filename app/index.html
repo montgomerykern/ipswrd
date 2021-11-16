@@ -12,9 +12,10 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.1/dist/js/uikit.min.js"></script>
 </head>
-<body>
+<body> 
         <div class="uk-width-3-4@s uk-text-center uk-padding-small">
             <span uk-icon="icon: lock; ratio: 3"></span>
+            
             <div class="uk-container uk-container-large">
                     <h1 class="uk-heading uk-padding-small">Password Generator</h1>
                     <p class="uk-text-italic uk-text-small">Select the difficulty you would like with the slider &
@@ -24,7 +25,7 @@
                         placeholder='Please choose your settings & click the generate password button.' />
                     <div class="uk-padding-small">Difficulty Level: <span id="difficulty"></span></div>
                     <input class="uk-range uk-padding-small" type="range" id="length" value="16" min="8" max="72" /><br>
-                    <div id="settings">
+                    <div class="uk-padding-small" id="settings">
                         <label for="numbers">Include Numbers</label>
                         <input type="checkbox" id="numbers" checked />
                         <label for="symbols">Include Symbols</label>
