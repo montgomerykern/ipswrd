@@ -1,82 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Password Generator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
     <link rel="stylesheet" href="css/uikit.min.css" />
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.8.1/dist/css/uikit.min.css" />
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.1/dist/js/uikit.min.js"></script>
 </head>
-<body> 
-        <div class="uk-width-3-4@s uk-text-center uk-padding-small">
-            <span uk-icon="icon: lock; ratio: 3"></span>
-            
-            <div class="uk-container uk-container-large">
-                    <h1 class="uk-heading uk-padding-small">Password Generator</h1>
-                    <p class="uk-text-italic uk-text-small">Select the difficulty you would like with the slider &
-                        instantly generate a secure password for your account. This code is publicly available for
-                        inspection @ Github</p>
-                    <input class="uk-input" type="text" id="password"
-                        placeholder='Please choose your settings & click the generate password button.' />
-                    <div class="uk-padding-small">Difficulty Level: <span id="difficulty"></span></div>
-                    <input class="uk-range uk-padding-small" type="range" id="length" value="16" min="8" max="72" /><br>
-                    <div class="uk-padding-small" id="settings">
-                        <label for="numbers">Include Numbers</label>
-                        <input type="checkbox" id="numbers" checked />
-                        <label for="symbols">Include Symbols</label>
-                        <input type="checkbox" id="symbols" checked /><br><br>
-                    </div>
-                    <button id="generate" class="uk-button uk-button-primary"> Generate Password <span
-                            uk-icon="heart"></span> </button>
-                    <button class="demo uk-button uk-button-success" id="copy" type="button"
-                        onclick="UIkit.notification({timeout:'1000', message: 'Password Copy Success', status: 'success'})">Copy
-                        Password <span uk-icon="plus-circle"></span> </button>
+
+<body>
+    <div class="uk-width-3-4@s uk-text-center uk-padding-small">
+        <span uk-icon="icon: lock; ratio: 3"></span>
+        <div class="uk-container uk-container-large">
+            <h1 class="uk-heading uk-padding-small">Password Generator</h1>
+            <p class="uk-text-italic uk-text-small">Select the difficulty you would like with the slider &
+                instantly generate a secure password for your account. This code is publicly available for
+                inspection @ Github</p>
+            <input class="uk-input" type="text" id="password"
+                placeholder='Please choose your settings & click the generate password button.' />
+            <div class="uk-padding-small">Difficulty Level: <span id="difficulty"></span></div>
+            <input class="uk-range uk-padding-small" type="range" id="length" value="16" min="8" max="72" /><br>
+            <div class="uk-padding-small" id="settings">
+                <label for="numbers">Include Numbers</label>
+                <input type="checkbox" id="numbers" checked />
+                <label for="symbols">Include Symbols</label>
+                <input type="checkbox" id="symbols" checked /><br><br>
             </div>
+            <button id="generate" class="uk-button uk-button-primary"> Generate Password <span uk-icon="heart"></span>
+            </button>
+            <button class="demo uk-button uk-button-success" id="copy" type="button">Copy
+                Password <span uk-icon="plus-circle"></span> </button>
+        </div>
     </div>
-    <script>
-        var slider = document.getElementById("length");
-        var output = document.getElementById("difficulty");
-        output.innerHTML = slider.value;
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-        }
-    </script>
-    <script>
-        const alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const numbers = "0123456789";
-        const symbols = "!@#$%^&*_-+=)(:";
-        const passwordTxt = document.getElementById("password");
-        const length = document.getElementById("length");
-        const incNumbers = document.getElementById("numbers");
-        const incSymbols = document.getElementById("symbols");
-        const generateBtn = document.getElementById("generate");
-        generateBtn.addEventListener("click", () => {
-            let characters = alpha;
-            incNumbers.checked ? (characters += numbers) : "";
-            incSymbols.checked ? (characters += symbols) : "";
-            passwordTxt.value = generatePassword(length.value, characters);
-        });
-        const generatePassword = (length, characters) => {
-            let password = "";
-            for (let i = 0; i < length; i++) {
-                password += characters.charAt(
-                    Math.floor(Math.random() * characters.length)
-                );
-            }
-            return password;
-        };
-        const copyBtn = document.getElementById("copy");
-        copyBtn.addEventListener("click", () => {
-            passwordTxt.select();
-            document.execCommand("copy");
-        });
-    </script>
-<!-- You can also require other files to run in this process -->
-<script src="./renderer.js"></script>
+     <!-- You can also require other files to run in this process -->
+    <script src="js/util.js"></script>
+    <script src="js/generator.js"></script>
+    <script src="./renderer.js"></script>
 </body>
+
 </html>
