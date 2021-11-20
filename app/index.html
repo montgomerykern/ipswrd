@@ -22,20 +22,18 @@
             <input class="uk-input" type="text" id="password"
                 placeholder='Please choose your settings & click the generate password button.' />
             <div class="uk-padding-small">Difficulty Level: <span id="difficulty"></span></div>
-            <input class="uk-range uk-padding-small" type="range" id="length" value="16" min="8" max="72" /><br>
+            <input class="uk-range uk-padding-small" uk-text-size="small" type="range" id="length" value="12" min="6" max="55" /><br>
             <div class="uk-padding-small" id="settings">
                 <label for="numbers">Include Numbers</label>
                 <input type="checkbox" id="numbers" checked />
                 <label for="symbols">Include Symbols</label>
                 <input type="checkbox" id="symbols" checked /><br><br>
             </div>
-            <button id="generate" class="uk-button uk-button-primary"> Generate Password <span uk-icon="heart"></span>
-            </button>
-            <button class="demo uk-button uk-button-success" id="copy" type="button">Copy
-                Password <span uk-icon="plus-circle"></span> </button>
+            <button id="generate" class="uk-button uk-button-primary"> Generate Password <span uk-icon="heart"></span></button>
+            <button class="demo uk-button uk-button-success" id="copy" type="button">Copy Password <span uk-icon="plus-circle"></span> </button>
         </div>
-    </div>
-     <!-- You can also require other files to run in this process -->
+    </div>y
+
     <script src="js/util.js"></script>
     <script src="js/generator.js"></script>
     <script src="./renderer.js"></script>
